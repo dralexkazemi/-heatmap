@@ -1,0 +1,400 @@
+﻿Age,DHB,Popn
+0 to 4,New Zealand,305510
+0 to 4,Northland,12310
+0 to 4,Waitemata,39970
+0 to 4,Auckland,24800
+0 to 4,Counties Manukau,43740
+0 to 4,Waikato,28810
+0 to 4,Lakes,7750
+0 to 4,Bay of Plenty,16520
+0 to 4,Tairawhiti,3610
+0 to 4,Taranaki,7940
+0 to 4,Hawke's Bay,10930
+0 to 4,Whanganui,4260
+0 to 4,MidCentral,11600
+0 to 4,Hutt Valley,10420
+0 to 4,Capital and Coast,16180
+0 to 4,Wairarapa,2820
+0 to 4,Nelson Marlborough,7830
+0 to 4,West Coast,1720
+0 to 4,Canterbury,33140
+0 to 4,South Canterbury,3220
+0 to 4,Southern,17930
+5 to 9,New Zealand,325570
+5 to 9,Northland,13490
+5 to 9,Waitemata,42310
+5 to 9,Auckland,26550
+5 to 9,Counties Manukau,46170
+5 to 9,Waikato,30360
+5 to 9,Lakes,8220
+5 to 9,Bay of Plenty,17800
+5 to 9,Tairawhiti,3830
+5 to 9,Taranaki,8840
+5 to 9,Hawke's Bay,12210
+5 to 9,Whanganui,4480
+5 to 9,MidCentral,12100
+5 to 9,Hutt Valley,10310
+5 to 9,Capital and Coast,17920
+5 to 9,Wairarapa,2960
+5 to 9,Nelson Marlborough,8930
+5 to 9,West Coast,1800
+5 to 9,Canterbury,34000
+5 to 9,South Canterbury,3570
+5 to 9,Southern,19740
+10 to 14,New Zealand,337540
+10 to 14,Northland,14130
+10 to 14,Waitemata,41830
+10 to 14,Auckland,27810
+10 to 14,Counties Manukau,45540
+10 to 14,Waikato,31180
+10 to 14,Lakes,8750
+10 to 14,Bay of Plenty,18270
+10 to 14,Tairawhiti,4160
+10 to 14,Taranaki,9290
+10 to 14,Hawke's Bay,12890
+10 to 14,Whanganui,4760
+10 to 14,MidCentral,12720
+10 to 14,Hutt Valley,10530
+10 to 14,Capital and Coast,19370
+10 to 14,Wairarapa,3190
+10 to 14,Nelson Marlborough,10160
+10 to 14,West Coast,1960
+10 to 14,Canterbury,36080
+10 to 14,South Canterbury,3860
+10 to 14,Southern,21050
+15 to 19,New Zealand,314880
+15 to 19,Northland,11300
+15 to 19,Waitemata,37580
+15 to 19,Auckland,28690
+15 to 19,Counties Manukau,41030
+15 to 19,Waikato,28360
+15 to 19,Lakes,7290
+15 to 19,Bay of Plenty,15790
+15 to 19,Tairawhiti,3430
+15 to 19,Taranaki,7480
+15 to 19,Hawke's Bay,11100
+15 to 19,Whanganui,4140
+15 to 19,MidCentral,12190
+15 to 19,Hutt Valley,9520
+15 to 19,Capital and Coast,21740
+15 to 19,Wairarapa,2830
+15 to 19,Nelson Marlborough,9130
+15 to 19,West Coast,1650
+15 to 19,Canterbury,35150
+15 to 19,South Canterbury,3250
+15 to 19,Southern,23240
+20 to 24,New Zealand,333260
+20 to 24,Northland,9420
+20 to 24,Waitemata,40230
+20 to 24,Auckland,38280
+20 to 24,Counties Manukau,41490
+20 to 24,Waikato,28840
+20 to 24,Lakes,6800
+20 to 24,Bay of Plenty,13670
+20 to 24,Tairawhiti,2840
+20 to 24,Taranaki,6440
+20 to 24,Hawke's Bay,9810
+20 to 24,Whanganui,3640
+20 to 24,MidCentral,12940
+20 to 24,Hutt Valley,9610
+20 to 24,Capital and Coast,29610
+20 to 24,Wairarapa,2310
+20 to 24,Nelson Marlborough,8030
+20 to 24,West Coast,1400
+20 to 24,Canterbury,39970
+20 to 24,South Canterbury,3000
+20 to 24,Southern,24900
+25 to 29,New Zealand,372030
+25 to 29,Northland,10650
+25 to 29,Waitemata,43010
+25 to 29,Auckland,51970
+25 to 29,Counties Manukau,46130
+25 to 29,Waikato,31270
+25 to 29,Lakes,7620
+25 to 29,Bay of Plenty,16270
+25 to 29,Tairawhiti,3280
+25 to 29,Taranaki,7250
+25 to 29,Hawke's Bay,11270
+25 to 29,Whanganui,4070
+25 to 29,MidCentral,12800
+25 to 29,Hutt Valley,11220
+25 to 29,Capital and Coast,28640
+25 to 29,Wairarapa,2610
+25 to 29,Nelson Marlborough,9100
+25 to 29,West Coast,1790
+25 to 29,Canterbury,43730
+25 to 29,South Canterbury,3770
+25 to 29,Southern,25550
+30 to 34,New Zealand,384110
+30 to 34,Northland,11860
+30 to 34,Waitemata,49490
+30 to 34,Auckland,49440
+30 to 34,Counties Manukau,47940
+30 to 34,Waikato,31270
+30 to 34,Lakes,8170
+30 to 34,Bay of Plenty,17760
+30 to 34,Tairawhiti,3390
+30 to 34,Taranaki,8230
+30 to 34,Hawke's Bay,11870
+30 to 34,Whanganui,4230
+30 to 34,MidCentral,12330
+30 to 34,Hutt Valley,12530
+30 to 34,Capital and Coast,25310
+30 to 34,Wairarapa,2850
+30 to 34,Nelson Marlborough,9730
+30 to 34,West Coast,1980
+30 to 34,Canterbury,45470
+30 to 34,South Canterbury,4090
+30 to 34,Southern,26140
+35 to 39,New Zealand,341110
+35 to 39,Northland,10870
+35 to 39,Waitemata,49330
+35 to 39,Auckland,38380
+35 to 39,Counties Manukau,42980
+35 to 39,Waikato,27600
+35 to 39,Lakes,7090
+35 to 39,Bay of Plenty,16130
+35 to 39,Tairawhiti,2960
+35 to 39,Taranaki,7830
+35 to 39,Hawke's Bay,10260
+35 to 39,Whanganui,3760
+35 to 39,MidCentral,10850
+35 to 39,Hutt Valley,11680
+35 to 39,Capital and Coast,22200
+35 to 39,Wairarapa,2590
+35 to 39,Nelson Marlborough,9390
+35 to 39,West Coast,1710
+35 to 39,Canterbury,39430
+35 to 39,South Canterbury,3410
+35 to 39,Southern,22660
+40 to 44,New Zealand,312600
+40 to 44,Northland,9880
+40 to 44,Waitemata,43820
+40 to 44,Auckland,32530
+40 to 44,Counties Manukau,37850
+40 to 44,Waikato,25760
+40 to 44,Lakes,6970
+40 to 44,Bay of Plenty,15330
+40 to 44,Tairawhiti,2860
+40 to 44,Taranaki,7610
+40 to 44,Hawke's Bay,10300
+40 to 44,Whanganui,3440
+40 to 44,MidCentral,10240
+40 to 44,Hutt Valley,10620
+40 to 44,Capital and Coast,21350
+40 to 44,Wairarapa,2730
+40 to 44,Nelson Marlborough,9310
+40 to 44,West Coast,1590
+40 to 44,Canterbury,36290
+40 to 44,South Canterbury,3390
+40 to 44,Southern,20710
+45 to 49,New Zealand,323490
+45 to 49,Northland,11620
+45 to 49,Waitemata,42900
+45 to 49,Auckland,32120
+45 to 49,Counties Manukau,36910
+45 to 49,Waikato,26780
+45 to 49,Lakes,7290
+45 to 49,Bay of Plenty,16470
+45 to 49,Tairawhiti,3100
+45 to 49,Taranaki,8040
+45 to 49,Hawke's Bay,11470
+45 to 49,Whanganui,4130
+45 to 49,MidCentral,11000
+45 to 49,Hutt Valley,10670
+45 to 49,Capital and Coast,21820
+45 to 49,Wairarapa,3110
+45 to 49,Nelson Marlborough,10880
+45 to 49,West Coast,1970
+45 to 49,Canterbury,37810
+45 to 49,South Canterbury,3800
+45 to 49,Southern,21600
+50 to 54,New Zealand,331200
+50 to 54,Northland,13080
+50 to 54,Waitemata,42810
+50 to 54,Auckland,31200
+50 to 54,Counties Manukau,37360
+50 to 54,Waikato,27700
+50 to 54,Lakes,7730
+50 to 54,Bay of Plenty,16910
+50 to 54,Tairawhiti,3210
+50 to 54,Taranaki,8220
+50 to 54,Hawke's Bay,11800
+50 to 54,Whanganui,4420
+50 to 54,MidCentral,11740
+50 to 54,Hutt Valley,10750
+50 to 54,Capital and Coast,21450
+50 to 54,Wairarapa,3360
+50 to 54,Nelson Marlborough,11660
+50 to 54,West Coast,2370
+50 to 54,Canterbury,39220
+50 to 54,South Canterbury,4170
+50 to 54,Southern,22050
+55 to 59 ,New Zealand,324150
+55 to 59 ,Northland,14120
+55 to 59 ,Waitemata,39850
+55 to 59 ,Auckland,29550
+55 to 59 ,Counties Manukau,34990
+55 to 59 ,Waikato,26900
+55 to 59 ,Lakes,7570
+55 to 59 ,Bay of Plenty,17310
+55 to 59 ,Tairawhiti,3240
+55 to 59 ,Taranaki,8330
+55 to 59 ,Hawke's Bay,12030
+55 to 59 ,Whanganui,4790
+55 to 59 ,MidCentral,12140
+55 to 59 ,Hutt Valley,10010
+55 to 59 ,Capital and Coast,20260
+55 to 59 ,Wairarapa,3610
+55 to 59 ,Nelson Marlborough,12140
+55 to 59 ,West Coast,2740
+55 to 59 ,Canterbury,37200
+55 to 59 ,South Canterbury,4480
+55 to 59 ,Southern,22870
+60-64,New Zealand,298090
+60-64,Northland,14280
+60-64,Waitemata,34790
+60-64,Auckland,25100
+60-64,Counties Manukau,29250
+60-64,Waikato,25900
+60-64,Lakes,7270
+60-64,Bay of Plenty,16970
+60-64,Tairawhiti,3200
+60-64,Taranaki,8170
+60-64,Hawke's Bay,11450
+60-64,Whanganui,4780
+60-64,MidCentral,11720
+60-64,Hutt Valley,9450
+60-64,Capital and Coast,16750
+60-64,Wairarapa,3550
+60-64,Nelson Marlborough,11830
+60-64,West Coast,2740
+60-64,Canterbury,34460
+60-64,South Canterbury,4410
+60-64,Southern,22000
+65-69,New Zealand,253590
+65-69,Northland,13200
+65-69,Waitemata,28300
+65-69,Auckland,20410
+65-69,Counties Manukau,23500
+65-69,Waikato,22820
+65-69,Lakes,6180
+65-69,Bay of Plenty,15690
+65-69,Tairawhiti,2800
+65-69,Taranaki,6910
+65-69,Hawke's Bay,10160
+65-69,Whanganui,4270
+65-69,MidCentral,10170
+65-69,Hutt Valley,7060
+65-69,Capital and Coast,13630
+65-69,Wairarapa,3450
+65-69,Nelson Marlborough,10750
+65-69,West Coast,2400
+65-69,Canterbury,28940
+65-69,South Canterbury,4030
+65-69,Southern,18910
+70-74,New Zealand,219540
+70-74,Northland,11540
+70-74,Waitemata,23720
+70-74,Auckland,16100
+70-74,Counties Manukau,18540
+70-74,Waikato,20130
+70-74,Lakes,5620
+70-74,Bay of Plenty,14600
+70-74,Tairawhiti,2270
+70-74,Taranaki,6100
+70-74,Hawke's Bay,9340
+70-74,Whanganui,3850
+70-74,MidCentral,9470
+70-74,Hutt Valley,6010
+70-74,Capital and Coast,11650
+70-74,Wairarapa,3200
+70-74,Nelson Marlborough,10140
+70-74,West Coast,2020
+70-74,Canterbury,25120
+70-74,South Canterbury,3750
+70-74,Southern,16360
+75-79,New Zealand,151200
+75-79,Northland,7640
+75-79,Waitemata,16940
+75-79,Auckland,10930
+75-79,Counties Manukau,12580
+75-79,Waikato,14020
+75-79,Lakes,3680
+75-79,Bay of Plenty,10660
+75-79,Tairawhiti,1420
+75-79,Taranaki,4240
+75-79,Hawke's Bay,6420
+75-79,Whanganui,2620
+75-79,MidCentral,6620
+75-79,Hutt Valley,4160
+75-79,Capital and Coast,8230
+75-79,Wairarapa,2140
+75-79,Nelson Marlborough,6930
+75-79,West Coast,1350
+75-79,Canterbury,17090
+75-79,South Canterbury,2560
+75-79,Southern,10950
+80-84,New Zealand,103760
+80-84,Northland,4850
+80-84,Waitemata,11810
+80-84,Auckland,7880
+80-84,Counties Manukau,8450
+80-84,Waikato,9410
+80-84,Lakes,2430
+80-84,Bay of Plenty,7350
+80-84,Tairawhiti,1010
+80-84,Taranaki,2870
+80-84,Hawke's Bay,4320
+80-84,Whanganui,1830
+80-84,MidCentral,4580
+80-84,Hutt Valley,3050
+80-84,Capital and Coast,5590
+80-84,Wairarapa,1440
+80-84,Nelson Marlborough,4440
+80-84,West Coast,840
+80-84,Canterbury,12070
+80-84,South Canterbury,1800
+80-84,Southern,7740
+85-89,New Zealand,56420
+85-89,Northland,2360
+85-89,Waitemata,6550
+85-89,Auckland,4270
+85-89,Counties Manukau,4310
+85-89,Waikato,5060
+85-89,Lakes,1290
+85-89,Bay of Plenty,3900
+85-89,Tairawhiti,530
+85-89,Taranaki,1750
+85-89,Hawke's Bay,2380
+85-89,Whanganui,980
+85-89,MidCentral,2480
+85-89,Hutt Valley,1660
+85-89,Capital and Coast,3170
+85-89,Wairarapa,730
+85-89,Nelson Marlborough,2380
+85-89,West Coast,420
+85-89,Canterbury,6790
+85-89,South Canterbury,1100
+85-89,Southern,4320
+90-*,New Zealand,34580
+90-*,Northland,1360
+90-*,Waitemata,4150
+90-*,Auckland,3050
+90-*,Counties Manukau,2530
+90-*,Waikato,3020
+90-*,Lakes,700
+90-*,Bay of Plenty,2360
+90-*,Tairawhiti,320
+90-*,Taranaki,1050
+90-*,Hawke's Bay,1410
+90-*,Whanganui,600
+90-*,MidCentral,1450
+90-*,Hutt Valley,1000
+90-*,Capital and Coast,1900
+90-*,Wairarapa,440
+90-*,Nelson Marlborough,1350
+90-*,West Coast,250
+90-*,Canterbury,4410
+90-*,South Canterbury,560
+90-*,Southern,2650

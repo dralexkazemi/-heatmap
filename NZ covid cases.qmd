@@ -1,0 +1,233 @@
+---
+title: "NZ COVID cases by age group"
+format: html
+author: Alex Kazemi
+editor: visual
+execute:
+  warning: false
+---
+
+```{r}
+#| label: load packages
+#| output: false
+
+library (tidyverse)
+library (gganimate)
+library (ggthemes)
+library (scales)
+library (hrbrthemes)
+library (zoo)
+library (gghighlight)
+library (gifski)
+library (png)
+library (viridis)
+library (paletteer)
+library (gridExtra)
+library (glue)
+library (cowplot)
+```
+
+The case data is in the file "covid_cases.csv". This is the case demographics file (covid-cases.csv) from the MOH github page:
+
+<https://github.com/minhealthnz/nz-covid-data/tree/main/cases>
+
+It is in exactly the same format as the MOH file - I download it and store it in my project folder (slightly clunky I know!)
+
+```{r}
+
+
+#read in cases and store as nzcases tibble
+nzcases <- read_csv(file="covid_cases.csv")
+
+#factorise age and DHB and change into date format.
+#Select only variables needed for plot 
+nzcases <- nzcases %>% 
+  mutate (Age = as.factor(`Age group`), DHB=as.factor (DHB)) %>%
+  mutate (Date = as.Date(`Report Date`, format=("%d/%m/%y"))) %>%
+  select(-`Report Date`,-`Age group`)
+
+
+```
+
+This code chunk produces the tibbles for the summed case counts for each age interval (ten year intervals) by DHB and then joins this to Stats NZ mid 2021 population figures for each DHB (I took this from the fig.nz website). The Stats NZ population figures are in a separate csv "DHBpop.csv" which I have sent separately but normally lives in my project folder.
+
+Age stratified incidence rates per 100k are then calculated and a 7 day rolling mean produced for the incidence rates. The final DHBcasecount1 tibble contains the variable "rate" which is the daily incidence rate of new cases stratified by age interval and DHB and "rate7day" which is the rolling average of the same.
+
+```{r}
+
+#create a new tibble DHBcasecount
+#sum individual cases for each date by age group and DHB
+#remove unknowns
+DHBcasecount <- nzcases %>% group_by (Date,Age,DHB) %>% summarise (n=n()) %>% filter (Age!="Unknown") 
+
+#load in Stats NZ mid 2021 DHB population figures
+#aggregate 5 year interval labels into 10 years
+#relevel to have 0 to 9 first
+DHBpop <- read_csv(file="DHBpop.csv") %>% 
+  mutate (Age= as.factor(Age)) %>% 
+  mutate (DHB=as.factor(DHB))
+
+DHBpop$Age <- fct_relevel(DHBpop$Age,"0 to 4","5 to 9")
+
+levels(DHBpop$Age) <- c("0 to 9","0 to 9","10 to 19", "10 to 19","20 to 29","20 to 29","30 to 39","30 to 39","40 to 49","40 to 49","50 to 59","50 to 59","60 to 69","60 to 69","70 to 79","70 to 79","80 to 89","80 to 89","90+")
+
+#sum 5 year age interval populations into 10 year age intervals. 
+DHBpop <- DHBpop %>% 
+  group_by(DHB,Age) %>% 
+  summarise (Pop=sum(Popn)) %>% 
+  filter (DHB!="New Zealand")
+
+#join cases tibble with population tibble by DHB and age
+DHBcasecount <- DHBcasecount %>% 
+  left_join(DHBpop,
+            by=c("DHB", "Age"))
+
+#complete the time series for each DHB by inserting missing dates
+DHBcasecount <- DHBcasecount %>%
+  select (Date,Age,DHB,n, Pop) %>%
+  group_by(DHB) %>%
+  complete (Date=seq.Date(min(Date),max(Date),by="day"))
+
+#calculate incidence/ 100k using DHB population figures
+#fill in missing rates as 0
+#as zero cases for an age group is not recorded in original tibble
+DHBcasecount1 <- DHBcasecount %>%
+  mutate (rate = n*100000/Pop) %>%
+  select (Date, Age, DHB, rate) %>%
+  group_by(DHB) %>%
+  complete (Date,Age,fill=list(rate=0)) %>%
+  filter (Age!="Unknown")  
+
+
+#use rollmean function to produce a 7 day rolling average
+#use default centering of mean in 7 day interval
+#final 
+DHBcasecount1 <- DHBcasecount1 %>%
+  filter (Date<"2022-05-05") %>%
+  filter (DHB!="Unknown")%>%
+  group_by(DHB,Age) %>%
+  mutate (rate7day= round (rollmean (rate,7,fill=NA)))
+```
+
+This code chunk plots the DHB heatmaps and outputs them into a grid of plots using the grid.extra package (creates a new tibble DHBcasecount2)
+
+```{r}
+
+#insert macrons for correct spelling into DHB labels
+
+DHBcasecount1$DHB <- recode(DHBcasecount1$DHB,
+                            Waitemata="Waitematā",
+                            Tairawhiti= "Tairāwhiti")
+
+#produce a table with the DHB names in it for the plotting function
+#remove MIQ and Unknown DHB labels
+DHBtable <- DHBcasecount1 %>%
+  select(DHB) %>% 
+  group_by(DHB) %>%
+  summarise (n=n()) %>%
+  filter (DHB!="Unknown", DHB!="Managed Isolation & Quarantine")
+
+#final tibble - start plot after 20th February, remove NAs
+#squish the upper limit of rolling average rate
+#to incidence of 800/100k max (optional)
+DHBcasecount2 <- DHBcasecount1 %>%
+  filter (Date>"2022-02-20") %>% 
+  drop_na() %>%
+  mutate (rate7day = oob_squish (rate7day,c(0,800)))
+
+
+#create a function to produce a heatmap for each DHB using a label from the DHB variable
+#fill variable is the rolling 7 day incidence rate
+make_plot <- function(DHB) {
+  DHBcasecount2 %>%
+   filter(.data$DHB == .env$DHB) %>%
+   ggplot() + 
+    aes(Date, Age,fill=rate7day) +
+    geom_tile(color= "white",size=0.1) +
+    scale_fill_paletteer_c("viridis::magma",name="",
+                         breaks=c(0,200,400,600,800),
+                         labels=c("0","200","400","600","800+")) +
+    scale_x_date(date_breaks = "5 days",
+                 date_labels="%d %b") +  
+    theme_fivethirtyeight() +
+    ggtitle(glue("DHB: {DHB}")) +
+    theme(plot.title.position = "plot",
+          plot.title = element_text(size=18),
+          axis.text.x = element_text(size=14),
+          axis.text.y=element_text(size=18)) +
+    guides(fill = guide_colorbar(barwidth = unit(40, 'lines'),
+                                 barheight = unit(1.5, 'lines')))
+}
+
+#apply the function to each element in the vector of DHB names from DHBtable made earlier making a list of heatmaps
+plots <- map (DHBtable$DHB, make_plot)
+
+#define png output
+png("COVIDCasesDHB1.png", units="px", width=4400, height=2600,pointsize=8)
+
+#define a margin between plots
+margin = theme(plot.margin = unit(c(0.1,0.1,0.1,0.1), "cm"))
+
+#use grid.arrange to plot all elements in the plots list
+grid.arrange(grobs = lapply(plots, "+", margin), ncol=4)
+
+dev.off()
+```
+
+This code chunk produces the animation of the heatmap over time -each frame is a day and the DHBs are laid out north to south. The fill variable is the 7 day rolling incidence rate stratified by age interval and DHB from the DHBcasecount1 tibble.
+
+```{r}
+
+#create new tibble with DHBs reordered north to south
+#squish upper limit of rolling average incidence rate to 800/100k
+#produce new variable strdate for using in the frame subtitle
+DHBcasecount3 <- DHBcasecount1 %>%
+  filter (DHB!="Managed Isolation & Quarantine") %>% 
+  mutate (DHB=fct_relevel (DHB,c("Northland","Waitematā",
+                                 "Auckland","Counties Manukau",
+                                 "Bay of Plenty", "Waikato",
+                                 "Lakes","Tairāwhiti","Taranaki",
+                                 "Hawke's Bay","Whanganui",
+                                 "MidCentral","Hutt Valley",
+                                 "Capital and Coast","Wairarapa",
+                                 "Nelson Marlborough",
+                                 "West Coast","Canterbury",
+                                 "South Canterbury","Southern"))) %>% 
+  drop_na() %>%
+  mutate (rate7day = oob_squish (rate7day,c(0,800))) %>%
+  mutate (strdate=format(Date,"%d %b"))
+
+#plot p is a heatmap of age vs DHB with fill being the rolling rate
+#start date at 10th February
+
+p <- DHBcasecount3 %>%
+  filter (Date>"2022-02-10") %>%
+  ggplot()+
+  aes(Age, fct_rev(DHB),fill=rate7day) +
+  geom_tile(color= "white",size=0.1) +
+  scale_fill_paletteer_c("viridis::plasma",name="",
+                         breaks=c(0,200,400,600,800),
+                         labels=c("0","200","400","600","800+")) +
+  theme_ipsum() +
+  coord_fixed() +
+  theme(plot.title=element_text(size=12,hjust=0.5),
+        plot.title.position = "panel",
+        plot.subtitle=element_text(face="bold.italic"),
+        axis.text.x = element_text(angle=80,hjust=1, vjust=1),
+        axis.title.x=element_blank(),
+        axis.title.y=element_blank(),
+        legend.position = "bottom")+
+  guides(fill = guide_colorbar(barwidth = unit(15, 'lines'),
+                               barheight = unit(.5, 'lines')))+
+  labs(subtitle="Date: {format(frame_time, '%d-%b')}",
+       title="Age and DHB specific \n7 day averaged COVID incidence (per 100k) over time")
+
+#produce animation called gganim using gganimate
+#with Date as transition for each frame
+
+gganim <- p+ transition_time(Date)+ ease_aes("sine-in")
+
+#create gif from animation
+animate(gganim,height=1600,width=1400,nframes=300, fps=10, res=200, end_pause = 40)
+
+```
